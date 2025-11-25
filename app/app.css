@@ -5,7 +5,6 @@
     "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
-
 html,
 body {
   @apply bg-white dark:bg-gray-950;
@@ -33,24 +32,29 @@ a:hover {
   gap: 0.5rem;
   border: 1px solid hsl(0, 0%, 30%);
 }
-
+.lock-shackle {
+  stroke-dasharray: 21px;
+}
 @keyframes lock-shackle {
   0% {
-    transform: translateY(0px) scale(1.05);
+    transform: translateY(0px);
+    stroke-dashoffset: -1px;
   }
-  70% {
-    transform: translateY(-4px) scale(1.05);
+  50% {
+    transform: translateY(-4px);
+    stroke-dashoffset: 5px;
   }
   0% {
-    transform: translateY(0px) scale(1.05);
+    transform: translateY(0px);
+    stroke-dashoffset: -1px;
   }
 }
 @keyframes lock-hole {
   0% {
     transform: translateY(0px);
   }
-  70% {
-    transform: translateY(-2px);
+  50% {
+    transform: translateY(-4px);
   }
   0% {
     transform: translateY(0px);
@@ -60,7 +64,7 @@ a:hover {
   0% {
     transform: translateY(0px);
   }
-  70% {
+  50% {
     transform: translateY(-4px);
   }
   0% {
@@ -68,13 +72,12 @@ a:hover {
   }
 }
 
-.animation-lock-shackle {
-  transform-origin: center bottom;
-  animation: lock-shackle 450ms ease-in-out;
+/*.animation-lock-shackle {
+  animation: lock-shackle 450ms cubic-bezier(0.8, -0.4, 0.5, 1);
 }
 .animation-lock-hole {
-  animation: lock-hole 450ms ease-out;
+  animation: lock-hole 450ms cubic-bezier(0.8, -0.4, 0.5, 1);
 }
 .animation-lock-box {
-  animation: lock-box 450ms ease-in-out;
-}
+  animation: lock-box 450ms cubic-bezier(0.8, -0.4, 0.5, 1);
+}*/
