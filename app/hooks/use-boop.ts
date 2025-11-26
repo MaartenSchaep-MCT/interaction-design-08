@@ -9,6 +9,7 @@ function useBoop({
   timing = 150,
   timingFunction = "linear",
   strokeDashoffset = 0,
+  transitionDelay = 0,
 }: PropsWithChildren<{
   x?: number;
   y?: number;
@@ -17,6 +18,7 @@ function useBoop({
   timing?: number;
   timingFunction?: string;
   strokeDashoffset?: number;
+  transitionDelay?: number;
 }>) {
   const [isBooped, setIsBooped] = React.useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -24,6 +26,7 @@ function useBoop({
     display: "inline-block",
     backfaceVisibility: "hidden",
     transition: `all ${timing}ms ${timingFunction}`,
+    transitionDelay: `${transitionDelay}ms`,
     transform: isBooped
       ? `translate(${x}px, ${y}px)
          rotate(${rotation}deg)
